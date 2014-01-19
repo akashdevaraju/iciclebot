@@ -17,18 +17,16 @@ module.exports = (robot) ->
     message = msg.message.text
 
     if robot.brain["user_data"]
-      msg.send "Okay, user_data array is present"
+      msg.send user_id
       user_object = (robot.brain.user_data.where user_id: user_id)[0]
+      msg.send sys.inspect(user_object)
       if user_object
-        msg.send "Okay, I got the user object. User already exists"
         user_object.details.messages.push message
       else
-        msg.send "User does not exist, creating a new one"
         user_object = { user_id: user_id, details: { user_name: user_name, last_msg_room_id : room_id, messages : [] } }
         user_object.details.messages.push message
         robot.brain["user_data"].push user_object
     else
-      msg.send "User data does not exist, creating one now."
       robot.brain["user_data"] = []
       user_object = { user_id: user_id, details: { user_name: user_name, last_msg_room_id : room_id, messages : [] } }
       user_object.details.messages.push message
