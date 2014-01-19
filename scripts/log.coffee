@@ -18,7 +18,7 @@ module.exports = (robot) ->
 
     if robot.brain["user_data"]
       msg.send user_id
-      user_object = (robot.brain.user_data.where user_id: user_id)[0]
+      user_object = (robot.brain.user_data.where user_id:user_id)[0]
       msg.send sys.inspect(user_object)
       if user_object
         user_object.details.messages.push message
