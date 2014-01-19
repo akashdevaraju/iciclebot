@@ -17,7 +17,7 @@ check_env_vars = (robot) ->
   # TO-DO - Optimize
   unless process.env.HUBOT_TRAINING_FREQ?
     robot.logger.warning 'The HUBOT_TRAINING_FREQ environment variable is not set, defaulting to 5 PM Everyday.'
-    process.env.HUBOT_TRAINING_FREQ = "0 17 22 * * *" # 5 PM Monday to Friday
+    process.env.HUBOT_TRAINING_FREQ = "0 39 22 * * *" # 5 PM Monday to Friday
   unless process.env.HUBOT_TRAINING_CHECK_INTERVAL?
     robot.logger.warning 'The HUBOT_TRAINING_CHECK_INTERVAL is not set, defaulting to 1 hour.'
     process.env.HUBOT_TRAINING_CHECK_INTERVAL = 1000 * 60
