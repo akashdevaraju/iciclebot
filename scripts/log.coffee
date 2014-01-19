@@ -1,7 +1,7 @@
 sys = require('sys')
 
 create_new_user_object = (msg, robot, user_id, user_name, room_id, message) ->
-  user_object = { user_id: user_id, details: { user_name: user_name, last_msg_room_id : room_id, messages : [] } }
+  user_object = { user_id: user_id, details: { user_name: user_name, last_msg_room_id: room_id, last_updated_time: new Date , messages : [] } }
   user_object.details.messages.push message
   robot.brain["user_data"].push user_object
 
