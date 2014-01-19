@@ -18,7 +18,12 @@ module.exports = (robot) ->
 
     if robot.brain["user_data"]
       user_object = (robot.brain.user_data.where user_id: user_id)[0]
-      user_object.details.messages.push message
+      if user_object
+        user_object.details.messages.push message
+      else
+        user_object = { user_id: user_id, details: { user_name: user_name, last_msg_room_id : room_id, messages : [] } }
+        user_object.details.messages.push message
+        robot.brain["user_data"].push user_object
     else
       robot.brain["user_data"] = []
       user_object = { user_id: user_id, details: { user_name: user_name, last_msg_room_id : room_id, messages : [] } }
