@@ -1,14 +1,5 @@
 sys = require('sys')
 
-Array::where = (query) ->
-  return [] if typeof query isnt "object"
-  hit = Object.keys(query).length
-  @filter (item) ->
-    match = 0
-    for key, val of query
-      match += 1 if item[key] is val
-      if match is hit then true else false
-
 module.exports = (robot) ->
   robot.hear /(.*)/i, (msg) ->
     user_id = msg.message.user.id.toString()
@@ -18,7 +9,7 @@ module.exports = (robot) ->
 
     if robot.brain["user_data"]
       msg.send user_id
-      user_object = (robot.brain.user_data.where user_id:user_id)[0]
+      user_object = user for user in robot.brain["user_data"] when user.user_id == user_id
       msg.send sys.inspect(user_object)
       if user_object
         user_object.details.messages.push message
