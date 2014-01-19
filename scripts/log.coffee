@@ -1,3 +1,20 @@
+# Description:
+#   Logs any created message and stores in robot.brain.user_data
+#
+# Dependencies:
+#   None
+#
+# Configuration:
+#   None
+#
+# Commands:
+#   None
+#
+# Notes:
+#   None
+#
+# Author:
+#   VinayNadig
 sys = require('sys')
 
 create_new_user_object = (args) ->

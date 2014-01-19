@@ -1,3 +1,24 @@
+# Description:
+#   updates robot.brain.user_data with the most recent training update
+#
+# Dependencies:
+#   None
+#
+# Configuration:
+#   None
+#
+# Commands:
+#   hubot > - <what the respond trigger does>
+#   self training <link_name> - saves training link and time
+#   going through <link_name> - saves training link and time
+#   went through <link_name> - saves training link and time
+#
+# Notes:
+#   None
+#
+# Author:
+#   VinayNadig
+
 update_training = (msg, robot) ->
   user_id = msg.message.user.id.toString()
   user_object = user for user in robot.brain["user_data"] when user.user_id == user_id

@@ -1,3 +1,25 @@
+# Description:
+#   Reminds everyone in room to do training and then updates after specified amount of time
+#   listing users who have not gone through self training.
+#
+# Dependencies:
+#   "cron": "latest"
+#   "time": "latest"
+#
+# Configuration:
+#   HUBOT_TRAINING_FREQ - cron string
+#   HUBOT_TRAINING_CHECK_INTERVAL - interval between reminder and update
+#   HUBOT_TRAINING_ROOM_ID - Room Id
+#
+# Commands:
+#   None
+#
+# Notes:
+#   None
+#
+# Author:
+#   VinayNadig
+
 same_day = (date1, date2) ->
   date1.month == date2.month and date1.year == date2.year and date1.date == date2.date
 
