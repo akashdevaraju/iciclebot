@@ -28,7 +28,6 @@ module.exports = (robot) ->
           user_object.details.do_not_bug = do_not_bug
           user_object.details.dob = dob
           user_object.details.email = email
-          user_object.details.trainings = []
         else
           create_new_user_object(args)
       else
