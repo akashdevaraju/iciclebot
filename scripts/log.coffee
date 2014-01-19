@@ -16,6 +16,7 @@ module.exports = (robot) ->
       user_object = user for user in robot.brain["user_data"] when user.user_id == user_id
       if user_object
         user_object.details.messages.push message
+        user_object.details.last_updated_time = new Date
       else
         create_new_user_object(msg, robot, user_id, user_name, room_id, message)
     else
