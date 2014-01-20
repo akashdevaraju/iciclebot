@@ -38,10 +38,10 @@ check_env_vars = (robot) ->
   # TO-DO - Optimize
   unless process.env.HUBOT_TRAINING_FREQ?
     robot.logger.warning 'The HUBOT_TRAINING_FREQ environment variable is not set, defaulting to 5 PM Everyday.'
-    process.env.HUBOT_TRAINING_FREQ = "0 0 2 * * *" # 5 PM Monday to Friday
+    process.env.HUBOT_TRAINING_FREQ = "0 0 17 *  2-6" # 5 PM Monday to Friday
   unless process.env.HUBOT_TRAINING_CHECK_INTERVAL?
     robot.logger.warning 'The HUBOT_TRAINING_CHECK_INTERVAL is not set, defaulting to 1 hour.'
-    process.env.HUBOT_TRAINING_CHECK_INTERVAL = 1000 * 60
+    process.env.HUBOT_TRAINING_CHECK_INTERVAL = 1000 * 60 * 60
   unless process.env.HUBOT_TRAINING_ROOM_ID?
     robot.logger.warning 'The HUBOT_TRAINING_ROOM_ID is not set, defaulting to Team Icicle Room.'
     process.env.HUBOT_TRAINING_ROOM_ID = "52d1b8dc1d16bee74d00021e"
@@ -54,5 +54,5 @@ module.exports = (robot) ->
     robot.reply {user: {name: "Everyone", room_id: process.env.HUBOT_TRAINING_ROOM_ID} }, reminder_message
     setTimeout ( ->
       remind_training robot
-    ), process.env.HUBOT_TRAINING_CHECK_INTERVAL
+    ), Number(process.env.HUBOT_TRAINING_CHECK_INTERVAL)
   , null, true)
