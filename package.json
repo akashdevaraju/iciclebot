@@ -28,7 +28,9 @@
     "time":          "latest",
     "hubot":         ">= 2.6.0 < 3.0.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
-    "hubot-hall":    "latest"
+    "hubot-hall":    "latest",
+    "twit":          "1.1.6",
+    "underscore": "1.4.4"
   },
 
   "engines": {
