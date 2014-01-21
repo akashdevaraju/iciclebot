@@ -53,7 +53,7 @@ module.exports = (robot) ->
     twit.get "statuses/user_timeline",
       screen_name: escape(username)
       count: count
-      include_rts: false
+      include_rts: true
       exclude_replies: true
     , (err, reply) ->
       return msg.send "Error" if err
